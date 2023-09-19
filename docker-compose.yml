@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  myapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fd_i:latest
+    container_name: fd_c
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app:/code
+    environment:
+      - PYTHONUNBUFFERED=1

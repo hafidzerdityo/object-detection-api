@@ -1,0 +1,5 @@
+*.env
+datasets/
+venv/
+*.ipynb
+*.pyc
