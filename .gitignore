@@ -1,0 +1,7 @@
+**/*.env
+**/datasets/
+**/venv/
+**/*.ipynb
+**/*.pyc
+**/*.log
+**/*.vscode

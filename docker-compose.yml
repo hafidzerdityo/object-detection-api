@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  odwebservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: od_i:latest
+    container_name: od_c
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app:/code
+    environment:
+      - PYTHONUNBUFFERED=1
