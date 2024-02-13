@@ -9,7 +9,7 @@ from log import logger
 router = APIRouter()
 
 @router.post('/house_det', tags=["Main"])
-async def house_detection_single_path(request: house_det_schema.ImagesInputSinglePath):
+async def house_detection_single_path(request: house_det_schema.ImagesInputSinglePathHouse):
     try:
         predict = house_det_model.predict_house(request.tensor)
         return {
@@ -26,7 +26,7 @@ async def house_detection_single_path(request: house_det_schema.ImagesInputSingl
         )
 
 @router.post('/house_det_b64',tags=["Main"])
-async def house_detection_single_b64(request: house_det_schema.ImagesInputSingleb64):
+async def house_detection_single_b64(request: house_det_schema.ImagesInputSingleb64House):
     predict = house_det_model.predict_house_b64(request.b64str, request.b64return)
     if 'error' in predict.keys():
         logger.error(predict.get('error',None)) 

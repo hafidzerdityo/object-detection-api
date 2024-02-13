@@ -9,7 +9,7 @@ from log import logger
 router = APIRouter()
 
 @router.post('/face_det', tags=["Main"])
-async def face_detection_single_path(request: face_det_schema.ImagesInputSinglePath):
+async def face_detection_single_path(request: face_det_schema.ImagesInputSinglePathFace):
     try:
         predict = face_det_model.predict_face(request.tensor)
         return {
@@ -26,7 +26,7 @@ async def face_detection_single_path(request: face_det_schema.ImagesInputSingleP
         )
 
 @router.post('/face_det_b64',tags=["Main"])
-async def face_detection_single_b64(request: face_det_schema.ImagesInputSingleb64):
+async def face_detection_single_b64(request: face_det_schema.ImagesInputSingleb64Face):
     predict = face_det_model.predict_face_b64(request.b64str, request.b64return)
     if 'error' in predict.keys():
         logger.error(predict.get('error',None)) 
