@@ -6,9 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     image: od_i:latest
+    command: sh -c "uvicorn main:app --host 0.0.0.0 --port 8002 --reload"
     container_name: od_c
     ports:
-      - "9000:9000"
+      - "8002:8002"
     volumes:
       - ./app:/code
     environment:

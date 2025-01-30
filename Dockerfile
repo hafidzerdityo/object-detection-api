@@ -16,11 +16,13 @@ WORKDIR /code
 # Copy the requirements.txt file
 COPY ./requirements.txt /code/requirements.txt
 
+RUN pip cache purge
+RUN pip install deepface
+RUN pip install tf-keras
 # Install the Python dependencies
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-
 # Copy the remaining files to the working directory
 COPY ./app /code/.
 
-# Set the command to run the main.py file
-CMD ["python3", "main.py"]
+# # Set the command to run the main.py file
+# CMD ["python3", "main.py"]

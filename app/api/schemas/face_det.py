@@ -8,3 +8,6 @@ class ImagesInputSinglePathFace(BaseModel):
 class ImagesInputSingleb64Face(BaseModel):
     b64str: StrictStr
     b64return: StrictBool
+class FaceSimReq(BaseModel):
+    img_b64str1: StrictStr
+    img_b64str2: StrictStr
